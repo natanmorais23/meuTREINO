@@ -1,0 +1,114 @@
+{
+  "exercises": [
+    {
+      "id": "1",
+      "name": "Face Pull",
+      "group": "Costas",
+      "img": "https://storage.googleapis.com/flex-web-media-prod/content/images/wp-content/uploads/2024/02/what-muscle-does-face-pulls-work-768x512-1.webp"
+    },
+    {
+      "id": "2",
+      "name": "Supino Reto",
+      "group": "Peito",
+      "img": "https://totalpass.com/wp-content/uploads/2024/07/supino-reto.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Agachamento",
+      "group": "Pernas",
+      "img": "https://www.sundried.com/cdn/shop/articles/squat-gym-workout-sundried_1100x.jpg?v=1515425792"
+    },
+    {
+      "id": "4",
+      "name": "Rosca Direta",
+      "group": "Bíceps",
+      "img": "https://totalpass.com/wp-content/uploads/2024/04/rosca-direta.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Levantamento Terra",
+      "group": "Costas e Pernas",
+      "img": "https://cdn.fisiculturismo.com.br/monthly_2017_11/levantamento-terra.jpg.cbf57ca5cca0493e2f38cfa8b76bd59d.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Pull-up",
+      "group": "Costas",
+      "img": "https://manmatters.com/blog/content/images/size/w1000/2021/11/Untitled-design---2021-11-01T125710.356.jpg"
+    },
+    {
+      "id": "3d78",
+      "name": "Flexão",
+      "group": "Peito e Tríceps",
+      "img": "https://uk.gymshark.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F8urtyqugdt2l%2F5Rl1oj8Ap2IFUvAbcZOsTw%2Fc691ed63d9010d6c0f0ee582a3fd7a9c%2Fdesktop-push-ups.jpg&w=3840&q=85"
+    },
+    {
+      "id": "d4c4",
+      "name": "Power clean",
+      "group": "Costas",
+      "img": "https://swolverine.com/cdn/shop/articles/Power_Clean_Benefits_600x600_crop_center.jpg?v=1640833298"
+    },
+    {
+      "id": "de74",
+      "name": "Remada alta",
+      "group": "Costas e trapézio",
+      "img": "https://blog.ciaathletica.com.br/wp-content/uploads/2024/09/Cia-Athletica-remada-alta-mulher-barra-academia-Autores-GS2-Marketing-Freepik-1200x801.jpg"
+    }
+  ],
+  "workouts": [
+    {
+      "id": "1",
+      "name": "Treino A - Peito e Tríceps",
+      "exercises": [
+        {
+          "exercise_id": 2,
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "3d78",
+          "sets": 3,
+          "reps": 8,
+          "kg": 20
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Treino B - Costas e Bíceps",
+      "exercises": [
+        {
+          "exercise_id": 1,
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": 6,
+          "sets": 3,
+          "reps": 10,
+          "kg": 0
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Treino C - Pernas",
+      "exercises": [
+        {
+          "exercise_id": 3,
+          "sets": 4,
+          "reps": 10,
+          "kg": 60
+        },
+        {
+          "exercise_id": 5,
+          "sets": 4,
+          "reps": 10,
+          "kg": 80
+        }
+      ]
+    }
+  ]
+}
