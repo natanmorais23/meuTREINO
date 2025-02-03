@@ -61,7 +61,7 @@
       "name": "Treino A - Peito e Tríceps",
       "exercises": [
         {
-          "exercise_id": 2,
+          "exercise_id": "2",
           "sets": 3,
           "reps": 12,
           "kg": 20
@@ -70,6 +70,12 @@
           "exercise_id": "3d78",
           "sets": 3,
           "reps": 8,
+          "kg": 20
+        },
+        {
+          "exercise_id": "3",
+          "sets": 3,
+          "reps": 12,
           "kg": 20
         }
       ]

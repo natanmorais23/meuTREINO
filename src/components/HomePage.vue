@@ -13,7 +13,11 @@
       </h4>
 
       <div class="d-flex justify-content-end mb-3" style="margin-right: 7em">
-        <button @click="addExercise(workout)" class="btn btn-success me-2" style="font-size: .8em;">
+        <button
+          @click="toggleShowModal(workout)"
+          class="btn btn-success me-2"
+          style="font-size: 0.8em"
+        >
           <i class="fas fa-plus"></i>
         </button>
         <button @click="toggleEdit(workout, index)" class="btn btn-warning">
@@ -24,6 +28,46 @@
             <i class="fas fa-pencil-alt"></i>
           </template>
         </button>
+      </div>
+
+      <div
+        v-if="showModal"
+        class="modal fade show"
+        tabindex="-1"
+        style="display: flex; background-color: rgba(0, 0, 0, 0.5)"
+      >
+        <div class="modal-dialog" style="max-width: 90vw; margin: 5vh auto">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Adicionar exercícios</h5>
+              <button
+                type="button"
+                class="btn-close"
+                @click="toggleShowModal()"
+                aria-label="Fechar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <ExercisesList @select-exercise="handleExerciseSelection" />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                @click="toggleShowModal()"
+              >
+                Fechar Modal
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="addExerciseToWorkout(currentWorkout)"
+              >
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="wrap-table100 m-auto">
@@ -84,14 +128,20 @@
 
 <script>
 import axios from "axios";
+import ExercisesList from "./ExercisesList.vue";
 
 export default {
+  components: {
+    ExercisesList,
+  },
   data() {
     return {
       workouts: [],
       isEditing: false,
+      showModal: false,
       currentWorkoutIndex: null,
       editWorkoutName: "",
+      selectedExercises: [],
     };
   },
   created() {
@@ -101,6 +151,59 @@ export default {
     msg: String,
   },
   methods: {
+    handleExerciseSelection(selectedExercises) {
+      this.selectedExercises = selectedExercises.map((exercise) => ({
+        id: exercise.id,
+      }));
+
+      const exerciseNames = this.selectedExercises.map(
+        (exercise) => exercise.name
+      );
+      console.log("Exercícios selecionados no pai:", exerciseNames);
+      console.log("Exercícios completos:", this.selectedExercises);
+    },
+    async addExerciseToWorkout(workout) {
+      this.selectedExercises.forEach((exercise) => {
+        workout.exercises.push({
+          exercise_id: exercise.id,
+          sets: 3,
+          reps: 12,
+          kg: 20,
+        });
+      });
+
+      try {
+        await this.updateWorkout(workout.id, workout);
+        this.selectedExercises = [];
+        this.toggleShowModal();
+      } catch (error) {
+        console.log("Erro ao adicionar exercícios ao treino", error);
+      }
+    },
+    async updateWorkout(workoutId, workoutData) {
+      try {
+        const updatedExercises = workoutData.exercises.map((exercise) => ({
+          exercise_id: exercise.id || exercise.exercise_id, 
+          sets: exercise.sets,
+          reps: exercise.reps,
+          kg: exercise.kg,
+        }));
+
+        const workoutToUpdate = {
+          ...workoutData,
+          exercises: updatedExercises,
+        };
+
+        await axios.patch(
+          `http://localhost:5000/workouts/${workoutId}`,
+          workoutToUpdate
+        );
+
+        this.fetchWorkouts();
+      } catch (error) {
+        console.log("Erro ao atualizar treino - ", error);
+      }
+    },
     async fetchWorkouts() {
       try {
         const response = await axios.get("http://localhost:5000/workouts");
@@ -153,30 +256,33 @@ export default {
         this.editWorkoutName = workout.name;
       }
     },
-    async saveWorkout(workoutId) {
-      try {
-        const updateWorkout = {
-          name: this.editWorkoutName,
-        };
-
-        await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
-          updateWorkout
-        );
-
-        this.workouts[this.currentWorkoutIndex].name = this.editWorkoutName;
-
-        this.isEditing = false;
-        this.currentWorkoutIndex = null;
-      } catch (error) {
-        console.log("Erro ao salvar treino - ", error);
+    toggleShowModal(workout = null) {
+      this.showModal = !this.showModal;
+      if (workout) {
+        this.currentWorkout = workout;
+        console.log("current ", this.currentWorkout);
       }
+      console.log(workout.name);
+      console.log(this.showModal);
     },
   },
 };
 </script>
 
 <style scoped>
+.selected-exercise {
+  background-color: #28a745; /* Cor verde */
+  color: white;
+}
+.exercise-item {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.exercise-item:hover {
+  background-color: #f0f0f0;
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ TEMPLATE CSS PRONTO (tabela) ]
  */
