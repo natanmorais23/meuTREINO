@@ -89,6 +89,9 @@
                 </th>
                 <th class="column100 column1" data-column="column1">Séries</th>
                 <th class="column100 column1" data-column="column1">Carga</th>
+                <template v-if="isEditing">
+                  <th class="column100 column1" data-column="column1">Ação</th>
+                </template>
               </tr>
             </thead>
             <tbody>
@@ -117,6 +120,11 @@
                 <td class="column100 column1" data-column="column1">
                   {{ exercise.kg }}
                 </td>
+                <template v-if="isEditing">
+                  <td class="column100 column1" data-column="column1">
+                    <i class="fas fa-trash" @click="deleteExercise(workout, exercise.id)" style="cursor: pointer;"></i>
+                  </td>
+                </template>
               </tr>
             </tbody>
           </table>
@@ -256,6 +264,22 @@ export default {
         this.editWorkoutName = workout.name;
       }
     },
+    async saveWorkout(workoutId) {
+      try {
+        const updateWorkout = {
+          name: this.editWorkoutName,
+        };
+        await axios.patch(
+          `http://localhost:5000/workouts/${workoutId}`,
+          updateWorkout
+        );
+        this.workouts[this.currentWorkoutIndex].name = this.editWorkoutName;
+        this.isEditing = false;
+        this.currentWorkoutIndex = null;
+      } catch (error) {
+        console.log("Erro ao salvar treino - ", error);
+      }
+    },
     toggleShowModal(workout = null) {
       this.showModal = !this.showModal;
       if (workout) {
@@ -265,13 +289,24 @@ export default {
       console.log(workout.name);
       console.log(this.showModal);
     },
+    async deleteExercise(workout, exerciseId) {
+      try{
+        workout.exercises = workout.exercises.filter(exercise => exercise.id !== exerciseId)
+
+        await this.updateWorkout(workout.id, workout)
+        console.log(`Exercício ${exerciseId} removido com sucesso do treino ${workout.name}`);
+      }
+      catch(error) {
+        console.log('Erro ao deletar exercício - ', error)
+      }
+    }
   },
 };
 </script>
 
 <style scoped>
 .selected-exercise {
-  background-color: #28a745; /* Cor verde */
+  background-color: #28a745;
   color: white;
 }
 .exercise-item {
