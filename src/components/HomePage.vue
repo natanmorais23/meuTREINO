@@ -1,8 +1,8 @@
 <template>
   <div class="pb-5">
-    <div v-for="(workout, index) in workouts" :key="index">
+    <div v-for="(workout, workoutIndex) in workouts" :key="workoutIndex">
       <h4 class="mt-5 text-center">
-        <template v-if="isEditing && currentWorkoutIndex === index">
+        <template v-if="isEditing && currentWorkoutIndex === workoutIndex">
           <div class="border w-50 mx-auto rounded">
             <input v-model="editWorkoutName" class="form-control text-center" />
           </div>
@@ -12,7 +12,7 @@
         </template>
       </h4>
 
-      <div class="d-flex justify-content-end mb-3" style="margin-right: 7em">
+      <div class="d-flex justify-content-end mb-3" style="margin: auto; width: 90vw">
         <button
           @click="toggleShowModal(workout)"
           class="btn btn-success me-2"
@@ -20,8 +20,8 @@
         >
           <i class="fas fa-plus"></i>
         </button>
-        <button @click="toggleEdit(workout, index)" class="btn btn-warning">
-          <template v-if="isEditing && currentWorkoutIndex === index">
+        <button @click="toggleEdit(workout, workoutIndex)" class="btn btn-warning">
+          <template v-if="isEditing && currentWorkoutIndex === workoutIndex">
             Salvar
           </template>
           <template v-else>
@@ -70,40 +70,24 @@
         </div>
       </div>
 
-      <div class="wrap-table100 m-auto">
+      <div class="wrap-table100 m-auto" style="overflow-x: auto; width: 90vw; border-radius: .7em;">
         <div
           class="table100 ver2 m-b-110 text-center shadow"
-          style="border-radius: 0.7em; overflow: hidden"
+          style="border-radius: 0.7em; overflow: hidden;"
         >
-          <table data-vertable="ver2">
+          <table data-vertable="ver2 ">
             <thead>
               <tr class="row100 head">
-                <th class="column100 column1" data-column="column1">
-                  Exercício
-                </th>
-                <th class="column100 column1" data-column="column1">
-                  Grupo muscular
-                </th>
-                <th class="column100 column1" data-column="column1">
-                  Repetições
-                </th>
+                <th class="column100 column1" data-column="column1">Exercício</th>
+                <th class="column100 column1" data-column="column1">Grupo muscular</th>
+                <th class="column100 column1" data-column="column1">Repetições</th>
                 <th class="column100 column1" data-column="column1">Séries</th>
                 <th class="column100 column1" data-column="column1">Carga</th>
-                <template v-if="isEditing">
-                  <th class="column100 column1" data-column="column1">Ação</th>
-                </template>
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="(exercise, index) in workout.exercises"
-                :key="index"
-                class="row100"
-              >
-                <router-link
-                  :to="`/exercise/${exercise.id}`"
-                  class="text-decoration-none text-white"
-                >
+              <tr v-for="(exercise, index) in workout.exercises" :key="index" class="row100" style="position: relative;">
+                <router-link :to="`/exercise/${exercise.id}`" class="text-decoration-none text-white">
                   <td class="column100 column1" data-column="column1">
                     {{ exercise.name }}
                   </td>
@@ -120,10 +104,12 @@
                 <td class="column100 column1" data-column="column1">
                   {{ exercise.kg }}
                 </td>
-                <template v-if="isEditing">
-                  <td class="column100 column1" data-column="column1">
-                    <i class="fas fa-trash" @click="deleteExercise(workout, exercise.id)" style="cursor: pointer;"></i>
-                  </td>
+                <template v-if="isEditing && currentWorkoutIndex === workoutIndex">
+                  <i 
+                    class="fas fa-trash" 
+                    @click="deleteExercise(workout, exercise.id)" 
+                    style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                  </i>
                 </template>
               </tr>
             </tbody>
@@ -133,6 +119,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from "axios";
@@ -159,6 +146,9 @@ export default {
     msg: String,
   },
   methods: {
+    teste(){
+      console.log(this.currentWorkoutIndex)
+    },
     handleExerciseSelection(selectedExercises) {
       this.selectedExercises = selectedExercises.map((exercise) => ({
         id: exercise.id,
@@ -203,7 +193,7 @@ export default {
         };
 
         await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
+          `http://10.7.159.28:5000/workouts/${workoutId}`,
           workoutToUpdate
         );
 
@@ -214,7 +204,7 @@ export default {
     },
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://localhost:5000/workouts");
+        const response = await axios.get("http://10.7.159.28:5000/workouts");
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -225,7 +215,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://localhost:5000/exercises/${exercise.exercise_id}`
+                  `http://10.7.159.28:5000/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
@@ -270,7 +260,7 @@ export default {
           name: this.editWorkoutName,
         };
         await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
+          `http://10.7.159.28:5000/workouts/${workoutId}`,
           updateWorkout
         );
         this.workouts[this.currentWorkoutIndex].name = this.editWorkoutName;
@@ -291,6 +281,8 @@ export default {
     },
     async deleteExercise(workout, exerciseId) {
       try{
+        await axios.delete(`http://10.7.159.28:5000/workouts/${workout.id}/exercises/${exerciseId}`);
+
         workout.exercises = workout.exercises.filter(exercise => exercise.id !== exerciseId)
 
         await this.updateWorkout(workout.id, workout)
@@ -316,6 +308,12 @@ export default {
 }
 .exercise-item:hover {
   background-color: #f0f0f0;
+}
+
+@media screen and (max-width: 767px) {
+  .table100{
+    width: 200%;
+  }
 }
 
 /*//////////////////////////////////////////////////////////////////

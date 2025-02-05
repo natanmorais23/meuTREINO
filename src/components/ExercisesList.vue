@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-3">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
-      <div v-for="exercise in exercises" :key="exercise.id" class="col">
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center rowscols">
+      <div v-for="exercise in exercises" :key="exercise.id" class="col d-flex justify-content-center">
         <div
           class="card hover position-relative rounded"
           @click="handleExerciseSelection(exercise)"
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       exercises: [],
-      selectedExercises: [], 
+      selectedExercises: [],
     };
   },
   created() {
@@ -56,7 +56,7 @@ export default {
     },
     async fetchExercises() {
       try {
-        const response = await axios.get("http://localhost:5000/exercises");
+        const response = await axios.get("http://10.7.159.28:5000/exercises");
         this.exercises = response.data;
       } catch (error) {
         console.log("Erro ao buscar exercícios - ", error);
@@ -85,5 +85,32 @@ export default {
 .hover:hover {
   scale: 1.05;
   cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .row {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    width: 12rem !important; 
+    height: 12rem !important; 
+    margin-bottom: 10px;
+  }
+
+  h4{
+    font-size: 1.1em;
+  }
+
+  p{
+    font-size: .9em;
+  }
 }
 </style>

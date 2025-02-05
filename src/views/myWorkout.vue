@@ -3,10 +3,10 @@
     <div>
       <h1 class="mt-5 mb-5 text-center">Treinos da semana</h1>
 
-      <div class="wrap-table100 m-auto">
+      <div class="wrap-table100 m-auto" style="width: 90vw;">
         <div
           class="table100 ver2 m-b-110 d-flex gap-3 text-center shadow"
-          style="border-radius: 0.7em; overflow: hidden"
+          style="border-radius: 0.7em; overflow: hidden;"
         >
           <table
             data-vertable="ver2"
@@ -84,7 +84,7 @@ export default {
   methods: {
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://localhost:5000/workouts");
+        const response = await axios.get("http://10.7.159.28:5000/workouts");
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -95,7 +95,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://localhost:5000/exercises/${exercise.exercise_id}`
+                  `http://10.7.159.28:5000/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
@@ -128,6 +128,24 @@ export default {
 </script>
 
 <style scoped>
+
+@media screen and (max-width: 767px) {
+  .table100{
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .ver2{
+    width: 90vw;
+    margin: auto;
+  }
+}
+
+
+
+
+
+
 /*//////////////////////////////////////////////////////////////////
   [ TEMPLATE CSS PRONTO (tabela) ]
    */
@@ -167,9 +185,6 @@ a {
   padding: 33px 30px;
 }
 
-.wrap-table100 {
-  width: 1300px;
-}
 
 * {
   margin: 0px;
@@ -259,9 +274,6 @@ iframe {
   padding: 33px 30px;
 }
 
-.wrap-table100 {
-  width: 1300px;
-}
 
 table {
   width: 100%;

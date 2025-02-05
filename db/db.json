@@ -53,6 +53,84 @@
       "name": "Remada alta",
       "group": "Costas e trapézio",
       "img": "https://blog.ciaathletica.com.br/wp-content/uploads/2024/09/Cia-Athletica-remada-alta-mulher-barra-academia-Autores-GS2-Marketing-Freepik-1200x801.jpg"
+    },
+    {
+      "id": "9a77",
+      "name": "Ombros Press",
+      "group": "Ombros",
+      "img": "https://blog.gsuplementos.com.br/wp-content/uploads/2021/03/treino-para-ombro.webp"
+    },
+    {
+      "id": "c2b3",
+      "name": "Leg Press",
+      "group": "Pernas",
+      "img": "https://vitat.com.br/wp-content/uploads/2024/03/leg-press-horizontal-e-vertical.jpg"
+    },
+    {
+      "id": "ad91",
+      "name": "Tríceps Testa",
+      "group": "Tríceps",
+      "img": "https://static1.minhavida.com.br/articles/38/72/9a/9a/triceps-testa-orig-1.jpg"
+    },
+    {
+      "id": "51b4",
+      "name": "Agachamento Sumô",
+      "group": "Pernas",
+      "img": "https://imagens.ne10.uol.com.br/veiculos/_midias/jpg/2024/07/08/597x330/1_uma_esportista_em_uma_roupa_esportiva_preta_faz_um_agachamento_profundo_com_um_peso_nas_maos_232070_-27427293.jpg"
+    },
+    {
+      "id": "c6a9",
+      "name": "Agachamento Frontal",
+      "group": "Pernas",
+      "img": "https://boaforma.abril.com.br/wp-content/uploads/sites/2/2022/12/GettyImages-173160743.jpg?quality=70&strip=info"
+    },
+    {
+      "id": "7a21",
+      "name": "Encolhimento de Ombros",
+      "group": "Trapézio",
+      "img": "https://treinomestre.com.br/wp-content/uploads/2016/02/treino-trapezio-dicas-melhores-resultados.jpg"
+    },
+    {
+      "id": "d9f5",
+      "name": "Tríceps Corda",
+      "group": "Tríceps",
+      "img": "https://pratiquefitness.com.br/blog/wp-content/uploads/2023/11/Como-fazer-triceps-corda.jpg"
+    },
+    {
+      "id": "k8f4",
+      "name": "Mergulho",
+      "group": "Tríceps",
+      "img": "https://www.feitodeiridium.com.br/wp-content/uploads/2016/12/mergulho-5.jpg"
+    },
+    {
+      "id": "b7a9",
+      "name": "Crucifixo",
+      "group": "Peito",
+      "img": "https://gymplus.com.au/cdn/shop/files/L1040221_5000x.jpg?v=1714013622"
+    },
+    {
+      "id": "a1c2",
+      "name": "Cadeira Abdutora",
+      "group": "Pernas",
+      "img": "https://saude.abril.com.br/wp-content/uploads/2024/11/cadeira-abdutora-exercicio.jpg?crop=1&resize=1212,909"
+    },
+    {
+      "id": "f6a9",
+      "name": "Remada Unilateral",
+      "group": "Costas",
+      "img": "https://conteudo.imguol.com.br/c/entretenimento/0c/2019/12/03/remada-unilateral-com-halteres-1575402100538_v2_600x600.jpg"
+    },
+    {
+      "id": "x2a7",
+      "name": "Elevacao Lateral",
+      "group": "Ombros",
+      "img": "https://totalpass.com/wp-content/uploads/2024/08/elevacao-lateral-1.jpg"
+    },
+    {
+      "id": "v1c4",
+      "name": "Remada Curvada",
+      "group": "Costas",
+      "img": "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/05/05/1301740817-remada-curvada.jpg"
     }
   ],
   "workouts": [
