@@ -3,158 +3,265 @@
     {
       "id": "1",
       "name": "Face Pull",
-      "group": "Costas",
+      "groups": [
+        "Costas"
+      ],
       "img": "https://storage.googleapis.com/flex-web-media-prod/content/images/wp-content/uploads/2024/02/what-muscle-does-face-pulls-work-768x512-1.webp"
     },
     {
       "id": "2",
       "name": "Supino Reto",
-      "group": "Peito",
+      "groups": [
+        "Peito"
+      ],
       "img": "https://totalpass.com/wp-content/uploads/2024/07/supino-reto.jpg"
     },
     {
       "id": "3",
       "name": "Agachamento",
-      "group": "Pernas",
+      "groups": [
+        "Pernas"
+      ],
       "img": "https://www.sundried.com/cdn/shop/articles/squat-gym-workout-sundried_1100x.jpg?v=1515425792"
     },
     {
       "id": "4",
       "name": "Rosca Direta",
-      "group": "Bíceps",
+      "groups": [
+        "Bíceps"
+      ],
       "img": "https://totalpass.com/wp-content/uploads/2024/04/rosca-direta.jpg"
     },
     {
       "id": "5",
       "name": "Levantamento Terra",
-      "group": "Costas e Pernas",
+      "groups": [
+        "Costas",
+        "Pernas"
+      ],
       "img": "https://cdn.fisiculturismo.com.br/monthly_2017_11/levantamento-terra.jpg.cbf57ca5cca0493e2f38cfa8b76bd59d.jpg"
     },
     {
       "id": "6",
       "name": "Pull-up",
-      "group": "Costas",
+      "groups": [
+        "Costas"
+      ],
       "img": "https://manmatters.com/blog/content/images/size/w1000/2021/11/Untitled-design---2021-11-01T125710.356.jpg"
     },
     {
       "id": "3d78",
       "name": "Flexão",
-      "group": "Peito e Tríceps",
+      "groups": [
+        "Peito",
+        "Tríceps"
+      ],
       "img": "https://uk.gymshark.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F8urtyqugdt2l%2F5Rl1oj8Ap2IFUvAbcZOsTw%2Fc691ed63d9010d6c0f0ee582a3fd7a9c%2Fdesktop-push-ups.jpg&w=3840&q=85"
     },
     {
       "id": "d4c4",
       "name": "Power clean",
-      "group": "Costas",
+      "groups": [
+        "Costas"
+      ],
       "img": "https://swolverine.com/cdn/shop/articles/Power_Clean_Benefits_600x600_crop_center.jpg?v=1640833298"
     },
     {
       "id": "de74",
       "name": "Remada alta",
-      "group": "Costas e trapézio",
+      "groups": [
+        "Costas",
+        "Trapézio"
+      ],
       "img": "https://blog.ciaathletica.com.br/wp-content/uploads/2024/09/Cia-Athletica-remada-alta-mulher-barra-academia-Autores-GS2-Marketing-Freepik-1200x801.jpg"
     },
     {
       "id": "9a77",
       "name": "Ombros Press",
-      "group": "Ombros",
+      "groups": [
+        "Ombros"
+      ],
       "img": "https://blog.gsuplementos.com.br/wp-content/uploads/2021/03/treino-para-ombro.webp"
     },
     {
       "id": "c2b3",
       "name": "Leg Press",
-      "group": "Pernas",
+      "groups": [
+        "Pernas"
+      ],
       "img": "https://vitat.com.br/wp-content/uploads/2024/03/leg-press-horizontal-e-vertical.jpg"
     },
     {
       "id": "ad91",
       "name": "Tríceps Testa",
-      "group": "Tríceps",
+      "groups": [
+        "Tríceps"
+      ],
       "img": "https://static1.minhavida.com.br/articles/38/72/9a/9a/triceps-testa-orig-1.jpg"
     },
     {
       "id": "51b4",
       "name": "Agachamento Sumô",
-      "group": "Pernas",
+      "groups": [
+        "Pernas"
+      ],
       "img": "https://imagens.ne10.uol.com.br/veiculos/_midias/jpg/2024/07/08/597x330/1_uma_esportista_em_uma_roupa_esportiva_preta_faz_um_agachamento_profundo_com_um_peso_nas_maos_232070_-27427293.jpg"
     },
     {
       "id": "c6a9",
       "name": "Agachamento Frontal",
-      "group": "Pernas",
+      "groups": [
+        "Pernas"
+      ],
       "img": "https://boaforma.abril.com.br/wp-content/uploads/sites/2/2022/12/GettyImages-173160743.jpg?quality=70&strip=info"
     },
     {
       "id": "7a21",
       "name": "Encolhimento de Ombros",
-      "group": "Trapézio",
+      "groups": [
+        "Trapézio"
+      ],
       "img": "https://treinomestre.com.br/wp-content/uploads/2016/02/treino-trapezio-dicas-melhores-resultados.jpg"
     },
     {
       "id": "d9f5",
       "name": "Tríceps Corda",
-      "group": "Tríceps",
+      "groups": [
+        "Tríceps"
+      ],
       "img": "https://pratiquefitness.com.br/blog/wp-content/uploads/2023/11/Como-fazer-triceps-corda.jpg"
     },
     {
       "id": "k8f4",
       "name": "Mergulho",
-      "group": "Tríceps",
+      "groups": [
+        "Tríceps"
+      ],
       "img": "https://www.feitodeiridium.com.br/wp-content/uploads/2016/12/mergulho-5.jpg"
     },
     {
       "id": "b7a9",
       "name": "Crucifixo",
-      "group": "Peito",
+      "groups": [
+        "Peito"
+      ],
       "img": "https://gymplus.com.au/cdn/shop/files/L1040221_5000x.jpg?v=1714013622"
     },
     {
       "id": "a1c2",
       "name": "Cadeira Abdutora",
-      "group": "Pernas",
+      "groups": [
+        "Pernas"
+      ],
       "img": "https://saude.abril.com.br/wp-content/uploads/2024/11/cadeira-abdutora-exercicio.jpg?crop=1&resize=1212,909"
     },
     {
       "id": "f6a9",
       "name": "Remada Unilateral",
-      "group": "Costas",
+      "groups": [
+        "Costas"
+      ],
       "img": "https://conteudo.imguol.com.br/c/entretenimento/0c/2019/12/03/remada-unilateral-com-halteres-1575402100538_v2_600x600.jpg"
     },
     {
       "id": "x2a7",
       "name": "Elevacao Lateral",
-      "group": "Ombros",
+      "groups": [
+        "Ombros"
+      ],
       "img": "https://totalpass.com/wp-content/uploads/2024/08/elevacao-lateral-1.jpg"
     },
     {
       "id": "v1c4",
       "name": "Remada Curvada",
-      "group": "Costas",
+      "groups": [
+        "Costas"
+      ],
       "img": "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/05/05/1301740817-remada-curvada.jpg"
+    },
+    {
+      "id": "14ec",
+      "name": "Teste",
+      "groups": [
+        "Peito",
+        "Costas"
+      ],
+      "img": "https://www.oxerbrasil.com.br/wp-content/uploads/2024/03/exercicio-de-prancha.jpg"
+    },
+    {
+      "id": "72ec",
+      "name": "Remada unilateral",
+      "groups": [
+        "Costas",
+        "Bíceps"
+      ],
+      "img": "https://conteudo.imguol.com.br/c/entretenimento/f9/2019/08/27/remada-na-maquina-1566927337178_v2_1036x685.jpg"
     }
   ],
   "workouts": [
     {
       "id": "1",
-      "name": "Treino A - Peito e Tríceps",
+      "name": "Treino A - Upper body",
       "exercises": [
         {
           "exercise_id": "2",
-          "sets": 3,
-          "reps": 12,
+          "sets": 4,
+          "reps": 8,
           "kg": 20
         },
         {
           "exercise_id": "3d78",
           "sets": 3,
-          "reps": 8,
+          "reps": 10,
+          "kg": 20
+        },
+        {
+          "exercise_id": "d9f5",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "k8f4",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "b7a9",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "72ec",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "9a77",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "4",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "ad91",
+          "sets": 3,
+          "reps": 12,
           "kg": 20
         }
       ]
     },
     {
       "id": "2",
-      "name": "Treino B - Costas e Bíceps",
+      "name": "Treino B - Lower body",
       "exercises": [
         {
           "exercise_id": 1,
@@ -172,7 +279,25 @@
     },
     {
       "id": "3",
-      "name": "Treino C - Pernas",
+      "name": "Treino C - Core + Acessories",
+      "exercises": [
+        {
+          "exercise_id": 3,
+          "sets": 4,
+          "reps": 10,
+          "kg": 60
+        },
+        {
+          "exercise_id": 5,
+          "sets": 4,
+          "reps": 10,
+          "kg": 80
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Treino D - Max Strength",
       "exercises": [
         {
           "exercise_id": 3,

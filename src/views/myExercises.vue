@@ -6,7 +6,11 @@
       v-if="showModal"
       class="modal fade show"
       tabindex="-1"
-      style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: hidden;"
+      style="
+        display: block;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      "
     >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -33,13 +37,24 @@
               </div>
               <div class="mb-3">
                 <label for="group" class="form-label">Grupo Muscular</label>
-                <input
-                  type="text"
-                  id="group"
-                  class="form-control"
-                  v-model="newExercise.group"
-                  required
-                />
+                <div class="row px-4">
+                  <div
+                    v-for="group in muscleGroups"
+                    :key="group"
+                    class="col-3 form-check"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      :id="group"
+                      :value="group"
+                      v-model="newExercise.groups"
+                    />
+                    <label class="form-check-label" :for="group">
+                      {{ group }}
+                    </label>
+                  </div>
+                </div>
               </div>
               <div class="mb-3">
                 <label for="img" class="form-label">URL da Imagem</label>
@@ -76,7 +91,9 @@
         </button>
       </div>
 
-      <div class="row row-cols-2 row-cols-sm-4 row-cols-md-3 row-cols-lg-5 g-4 mx-auto justify-content-center">
+      <div
+        class="row row-cols-2 row-cols-sm-4 row-cols-md-3 row-cols-lg-5 g-4 mx-auto justify-content-center"
+      >
         <div v-for="exercise in exercises" :key="exercise.id" class="col">
           <router-link
             :to="`/exercise/${exercise.id}`"
@@ -96,7 +113,8 @@
                 class="card-body rounded position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white bg-dark bg-opacity-50 shadow"
               >
                 <h4 class="card-title text-center">{{ exercise.name }}</h4>
-                <p class="card-text text-center">{{ exercise.group }}</p>
+                <p class="card-text text-center">{{ Array.isArray(exercise.groups) ? exercise.groups.join(", ") : '' }}</p>
+
               </div>
             </div>
           </router-link>
@@ -116,9 +134,10 @@ export default {
       showModal: false,
       newExercise: {
         name: "",
-        group: "",
+        groups: [],
         img: "",
       },
+      muscleGroups: ["Peito", "Costas", "Pernas", "Ombros", "Bíceps", "Tríceps", "Posterior", "Quadríceps", "Glúteo", "Abdômen"]
     };
   },
   created() {
@@ -136,7 +155,7 @@ export default {
     toggleShowModal() {
       this.showModal = !this.showModal;
       if (this.showModal) {
-        document.body.style.overflow = "hidden"; 
+        document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "auto";
       }

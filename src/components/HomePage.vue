@@ -31,13 +31,13 @@
       </div>
 
       <div
-        v-if="showModal"
+        v-if="showModal && currentWorkout === workout"
         class="modal fade show"
         tabindex="-1"
-        style="display: flex; background-color: rgba(0, 0, 0, 0.5)"
+        style="display: block; background-color: rgba(0, 0, 0, 0.5)"
       >
         <div class="modal-dialog" style="max-width: 90vw; margin: 5vh auto">
-          <div class="modal-content">
+          <div class="modal-content" style="max-width: 90vw; margin: 5vh auto">
             <div class="modal-header">
               <h5 class="modal-title">Adicionar exercícios</h5>
               <button
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div class="wrap-table100 m-auto" style="overflow-x: auto; width: 90vw; border-radius: .7em;">
+      <div class="wrap-table100 m-auto shadow" style="overflow-x: auto; width: 90vw; border-radius: .7em; ">
         <div
           class="table100 ver2 m-b-110 text-center shadow"
           style="border-radius: 0.7em; overflow: hidden;"
@@ -146,9 +146,6 @@ export default {
     msg: String,
   },
   methods: {
-    teste(){
-      console.log(this.currentWorkoutIndex)
-    },
     handleExerciseSelection(selectedExercises) {
       this.selectedExercises = selectedExercises.map((exercise) => ({
         id: exercise.id,
@@ -157,8 +154,8 @@ export default {
       const exerciseNames = this.selectedExercises.map(
         (exercise) => exercise.name
       );
-      console.log("Exercícios selecionados no pai:", exerciseNames);
-      console.log("Exercícios completos:", this.selectedExercises);
+      console.log(exerciseNames)
+      console.log(selectedExercises)
     },
     async addExerciseToWorkout(workout) {
       this.selectedExercises.forEach((exercise) => {
@@ -274,7 +271,6 @@ export default {
       this.showModal = !this.showModal;
       if (workout) {
         this.currentWorkout = workout;
-        console.log("current ", this.currentWorkout);
       }
       console.log(workout.name);
       console.log(this.showModal);
@@ -286,7 +282,6 @@ export default {
         workout.exercises = workout.exercises.filter(exercise => exercise.id !== exerciseId)
 
         await this.updateWorkout(workout.id, workout)
-        console.log(`Exercício ${exerciseId} removido com sucesso do treino ${workout.name}`);
       }
       catch(error) {
         console.log('Erro ao deletar exercício - ', error)
@@ -297,6 +292,16 @@ export default {
 </script>
 
 <style scoped>
+
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+}
+
+
 .selected-exercise {
   background-color: #28a745;
   color: white;
