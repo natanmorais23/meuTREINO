@@ -190,7 +190,7 @@ export default {
         };
 
         await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
+          `https://meu-treino-nine.vercel.app/workouts/${workoutId}`,
           workoutToUpdate
         );
 
@@ -201,7 +201,7 @@ export default {
     },
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://localhost:5000/workouts");
+        const response = await axios.get("https://meu-treino-nine.vercel.app/workouts");
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -212,7 +212,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://localhost:5000/exercises/${exercise.exercise_id}`
+                  `https://meu-treino-nine.vercel.app/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
@@ -257,7 +257,7 @@ export default {
           name: this.editWorkoutName,
         };
         await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
+          `https://meu-treino-nine.vercel.app/workouts/${workoutId}`,
           updateWorkout
         );
         this.workouts[this.currentWorkoutIndex].name = this.editWorkoutName;
