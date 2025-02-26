@@ -25,6 +25,7 @@
 
 <script>
 import axios from 'axios';
+import apiUrl from '@/apiUrl';
 
 export default {
   data() {
@@ -40,7 +41,7 @@ export default {
   methods: {
     async fetchExerciseDetails() {
       try {
-        const response = await axios.get(`http://localhost:5000/exercises/${this.exerciseId}`);
+        const response = await axios.get(`${apiUrl}/exercises/${this.exerciseId}`);
         this.exercise = response.data;  
       } catch (error) {
         console.log('Erro ao buscar detalhes do exercício:', error);

@@ -124,6 +124,7 @@
 <script>
 import axios from "axios";
 import ExercisesList from "./ExercisesList.vue";
+import apiUrl from "@/apiUrl";
 
 export default {
   components: {
@@ -190,7 +191,7 @@ export default {
         };
 
         await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
+          `${apiUrl}/workouts/${workoutId}`,
           workoutToUpdate
         );
 
@@ -201,7 +202,7 @@ export default {
     },
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://localhost:5000/workouts");
+        const response = await axios.get(`${apiUrl}/workouts`);
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -212,7 +213,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://localhost:5000/exercises/${exercise.exercise_id}`
+                  `${apiUrl}/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
@@ -242,10 +243,8 @@ export default {
     },
     toggleEdit(workout, index) {
       if (this.isEditing && this.currentWorkoutIndex === index) {
-        //Salvar
         this.saveWorkout(workout.id);
       } else {
-        // Editar treino
         this.isEditing = true;
         this.currentWorkoutIndex = index;
         this.editWorkoutName = workout.name;
@@ -257,7 +256,7 @@ export default {
           name: this.editWorkoutName,
         };
         await axios.patch(
-          `http://localhost:5000/workouts/${workoutId}`,
+          `${apiUrl}/workouts/${workoutId}`,
           updateWorkout
         );
         this.workouts[this.currentWorkoutIndex].name = this.editWorkoutName;

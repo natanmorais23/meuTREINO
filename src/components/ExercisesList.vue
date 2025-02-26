@@ -74,6 +74,7 @@
 
 <script>
 import axios from "axios";
+import apiUrl from "@/apiUrl";
 
 export default {
   data() {
@@ -116,7 +117,7 @@ export default {
     },
     async fetchExercises() {
       try {
-        const response = await axios.get("http://localhost:5000/exercises");
+        const response = await axios.get(`${apiUrl}/exercises`);
         this.exercises = response.data;
         console.log(this.exercises);
         this.filteredExercises = this.exercises;
@@ -125,11 +126,11 @@ export default {
       }
     },
     filterExercises1() {
-      const query = this.searchQuery.toLowerCase(); // Converte a pesquisa para minúsculas
+      const query = this.searchQuery.toLowerCase(); 
       this.filteredExercises = this.exercises.filter((exercise) => {
-        const matchesName = exercise.name.toLowerCase().includes(query); // Filtra pelo nome
+        const matchesName = exercise.name.toLowerCase().includes(query);
         const matchesGroup =
-          !this.selectedGroup || exercise.groups.includes(this.selectedGroup); // Filtra pelo grupo muscular
+          !this.selectedGroup || exercise.groups.includes(this.selectedGroup);
         return matchesName && matchesGroup;
       });
     },

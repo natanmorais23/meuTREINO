@@ -126,6 +126,7 @@
 
 <script>
 import axios from "axios";
+import apiUrl from "@/apiUrl";
 
 export default {
   data() {
@@ -146,7 +147,7 @@ export default {
   methods: {
     async fetchExercises() {
       try {
-        const response = await axios.get("http://localhost:5000/exercises");
+        const response = await axios.get(`${apiUrl}/exercises`);
         this.exercises = response.data;
       } catch (error) {
         console.log("Erro ao buscar exercícios - ", error);
@@ -164,7 +165,7 @@ export default {
     async addExercise() {
       try {
         const response = await axios.post(
-          "http://localhost:5000/exercises",
+          `${apiUrl}/exercises`,
           this.newExercise
         );
 

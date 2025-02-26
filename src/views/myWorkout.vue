@@ -69,6 +69,7 @@
 <script>
 import axios from "axios";
 import html2pdf from "html2pdf.js";
+import apiUrl from "@/apiUrl";
 
 export default {
   data() {
@@ -88,7 +89,7 @@ export default {
   methods: {
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://localhost:5000/workouts");
+        const response = await axios.get(`${apiUrl}/workouts`);
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -99,7 +100,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://localhost:5000/exercises/${exercise.exercise_id}`
+                  `${apiUrl}/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
