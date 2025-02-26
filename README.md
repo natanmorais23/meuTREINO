@@ -6,6 +6,12 @@
 
 **meuTREINO** é uma plataforma interativa onde os usuários podem montar e personalizar seus próprios treinos de acordo com suas necessidades e objetivos. O site também permite acompanhar métricas como repetições, séries, e cargas utilizadas ao longo dos treinos, facilitando o monitoramento de progresso e a adaptação dos exercícios.
 
+## Treino semanal
+
+[!TreinoSemanal](./src/assets/treino_semanal.png)
+
+[!Filtro](./src/assets/filtro.png)
+
 ## Funcionalidades
 
 - **Montar Treinos Personalizados**: O usuário pode criar e organizar seus treinos, escolhendo exercícios específicos e definindo o número de repetições, séries e cargas.
