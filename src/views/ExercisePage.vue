@@ -40,7 +40,7 @@ export default {
   methods: {
     async fetchExerciseDetails() {
       try {
-        const response = await axios.get(`http://10.7.159.28:5000/exercises/${this.exerciseId}`);
+        const response = await axios.get(`http://localhost:5000/exercises/${this.exerciseId}`);
         this.exercise = response.data;  
       } catch (error) {
         console.log('Erro ao buscar detalhes do exercício:', error);

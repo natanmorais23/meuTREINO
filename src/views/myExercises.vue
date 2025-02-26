@@ -137,7 +137,7 @@ export default {
         groups: [],
         img: "",
       },
-      muscleGroups: ["Peito", "Costas", "Pernas", "Ombros", "Bíceps", "Tríceps", "Posterior", "Quadríceps", "Glúteo", "Abdômen"]
+      muscleGroups: ["Peito", "Costas", "Pernas", "Ombros", "Bíceps", "Tríceps", "Posterior", "Quadríceps", "Glúteo", "Abdômen", "Panturrilha", "Lombar"]
     };
   },
   created() {
@@ -146,7 +146,7 @@ export default {
   methods: {
     async fetchExercises() {
       try {
-        const response = await axios.get("http://10.7.159.28:5000/exercises");
+        const response = await axios.get("http://localhost:5000/exercises");
         this.exercises = response.data;
       } catch (error) {
         console.log("Erro ao buscar exercícios - ", error);
@@ -164,7 +164,7 @@ export default {
     async addExercise() {
       try {
         const response = await axios.post(
-          "http://10.7.159.28:5000/exercises",
+          "http://localhost:5000/exercises",
           this.newExercise
         );
 

@@ -23,7 +23,7 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/myExercises" :class="isActiveRoute('exercises') ? 'text-white' : 'text-secondary'" class="nav-link">
+              <router-link to="/myExercises" :class="isActiveRoute('myExercises') ? 'text-white' : 'text-secondary'" class="nav-link">
                 <i class="fas fa-running d-block mx-auto mb-1 is"></i>
                 Exercícios
               </router-link>

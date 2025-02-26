@@ -181,10 +181,9 @@
     },
     {
       "id": "14ec",
-      "name": "Teste",
+      "name": "Prancha",
       "groups": [
-        "Peito",
-        "Costas"
+        "Abdômen"
       ],
       "img": "https://www.oxerbrasil.com.br/wp-content/uploads/2024/03/exercicio-de-prancha.jpg"
     },
@@ -196,6 +195,101 @@
         "Bíceps"
       ],
       "img": "https://conteudo.imguol.com.br/c/entretenimento/f9/2019/08/27/remada-na-maquina-1566927337178_v2_1036x685.jpg"
+    },
+    {
+      "id": "c76c",
+      "name": "Puxada",
+      "groups": [
+        "Costas",
+        "Bíceps"
+      ],
+      "img": "https://pratiquefitness.com.br/blog/wp-content/uploads/2023/07/Exercicio-puxada-beneficios-variacoes-e-como-fazer-2.jpg"
+    },
+    {
+      "id": "a74b",
+      "name": "Stiff",
+      "groups": [
+        "Posterior"
+      ],
+      "img": "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2024/01/26/342316750-istock-1392963845.jpg",
+      "group": ""
+    },
+    {
+      "id": "81d9",
+      "name": "Búlgaro",
+      "groups": [
+        "Pernas"
+      ],
+      "img": "https://blog.ciaathletica.com.br/wp-content/uploads/2024/04/Cia-Athletica-mulher-jovem-agachamento-bulgaro-Autores-Grupo-S2-Marketing-Freepik.jpg",
+      "group": ""
+    },
+    {
+      "id": "2460",
+      "name": "Elevação pélvica",
+      "groups": [
+        "Posterior"
+      ],
+      "img": "https://totalpass.com/wp-content/uploads/2024/02/elevacao-pelvica-barra.jpg"
+    },
+    {
+      "id": "9090",
+      "name": "Gêmeos sentado",
+      "groups": [
+        "Panturrilha"
+      ],
+      "img": "https://totalpass.com/wp-content/uploads/2024/12/gemeos-sentado-exercicio.jpg",
+      "group": ""
+    },
+    {
+      "id": "a026",
+      "name": "Gêmeos leg",
+      "groups": [
+        "Panturrilha"
+      ],
+      "img": "https://timpersonaltrainer.wordpress.com/wp-content/uploads/2013/03/panturrilha-leg-horizontal.jpg?w=768"
+    },
+    {
+      "id": "fa0f",
+      "name": "Bosu",
+      "groups": [
+        "Abdômen"
+      ],
+      "img": "https://i.ytimg.com/vi/2U1t-R3QcnY/maxresdefault.jpg"
+    },
+    {
+      "id": "8fe8",
+      "name": "Abdominal",
+      "groups": [
+        "Abdômen"
+      ],
+      "img": "https://totalpass.com/wp-content/uploads/2022/03/abdominal.jpg",
+      "group": ""
+    },
+    {
+      "id": "0984",
+      "name": "Lombar",
+      "groups": [
+        "Lombar"
+      ],
+      "img": "https://sportlife.com.br/wp-content/uploads/2014/12/treino-para-lombar.jpg",
+      "group": ""
+    },
+    {
+      "id": "ee02",
+      "name": "Lombar máquina",
+      "groups": [
+        "Lombar"
+      ],
+      "img": "https://totalhealth.com.br/uploads/pagina/elemento/campo/2022/12/vkesB5Wv9H7En8Io/315rrf-treino-3.jpg",
+      "group": ""
+    },
+    {
+      "id": "039d",
+      "name": "Coice",
+      "groups": [
+        "Glúteo"
+      ],
+      "img": "https://media.istockphoto.com/id/471481894/pt/foto/glute-m%C3%A1quina-de-exerc%C3%ADcio-de-gin%C3%A1sio-mulher-exerc%C3%ADcio-f%C3%ADsico.jpg?s=170667a&w=0&k=20&c=9zxGNMu-iVQjVdqlyfIm5KilwaPS9fjF_S34jfhXES0="
     }
   ],
   "workouts": [
@@ -216,33 +310,15 @@
           "kg": 20
         },
         {
-          "exercise_id": "d9f5",
-          "sets": 3,
-          "reps": 12,
-          "kg": 20
-        },
-        {
-          "exercise_id": "k8f4",
-          "sets": 3,
-          "reps": 12,
-          "kg": 20
-        },
-        {
-          "exercise_id": "b7a9",
-          "sets": 3,
-          "reps": 12,
-          "kg": 20
-        },
-        {
           "exercise_id": "72ec",
-          "sets": 3,
-          "reps": 12,
+          "sets": 4,
+          "reps": 8,
           "kg": 20
         },
         {
           "exercise_id": "9a77",
-          "sets": 3,
-          "reps": 12,
+          "sets": 4,
+          "reps": 8,
           "kg": 20
         },
         {
@@ -256,6 +332,12 @@
           "sets": 3,
           "reps": 12,
           "kg": 20
+        },
+        {
+          "exercise_id": "c76c",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
         }
       ]
     },
@@ -264,16 +346,46 @@
       "name": "Treino B - Lower body",
       "exercises": [
         {
-          "exercise_id": 1,
+          "exercise_id": "3",
+          "sets": 4,
+          "reps": 8,
+          "kg": 20
+        },
+        {
+          "exercise_id": "c2b3",
+          "sets": 9,
+          "reps": 8,
+          "kg": 20
+        },
+        {
+          "exercise_id": "81d9",
           "sets": 3,
           "reps": 12,
           "kg": 20
         },
         {
-          "exercise_id": 6,
+          "exercise_id": "9090",
+          "sets": 4,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "a026",
+          "sets": 4,
+          "reps": 12,
+          "kg": 20
+        },
+        {
+          "exercise_id": "a74b",
+          "sets": 3,
+          "reps": 8,
+          "kg": 20
+        },
+        {
+          "exercise_id": "2460",
           "sets": 3,
           "reps": 10,
-          "kg": 0
+          "kg": 20
         }
       ]
     },
@@ -282,16 +394,34 @@
       "name": "Treino C - Core + Acessories",
       "exercises": [
         {
-          "exercise_id": 3,
-          "sets": 4,
-          "reps": 10,
-          "kg": 60
+          "exercise_id": "14ec",
+          "sets": 3,
+          "reps": 45,
+          "kg": 20
         },
         {
-          "exercise_id": 5,
-          "sets": 4,
-          "reps": 10,
-          "kg": 80
+          "exercise_id": "fa0f",
+          "sets": 3,
+          "reps": 15,
+          "kg": 20
+        },
+        {
+          "exercise_id": "8fe8",
+          "sets": 6,
+          "reps": 15,
+          "kg": 20
+        },
+        {
+          "exercise_id": "0984",
+          "sets": 3,
+          "reps": 8,
+          "kg": 20
+        },
+        {
+          "exercise_id": "ee02",
+          "sets": 3,
+          "reps": 12,
+          "kg": 20
         }
       ]
     },
@@ -300,16 +430,34 @@
       "name": "Treino D - Max Strength",
       "exercises": [
         {
-          "exercise_id": 3,
-          "sets": 4,
-          "reps": 10,
+          "exercise_id": "3",
+          "sets": 5,
+          "reps": 4,
           "kg": 60
         },
         {
-          "exercise_id": 5,
+          "exercise_id": "2",
+          "sets": 5,
+          "reps": 4,
+          "kg": 20
+        },
+        {
+          "exercise_id": "9a77",
           "sets": 4,
-          "reps": 10,
-          "kg": 80
+          "reps": 5,
+          "kg": 20
+        },
+        {
+          "exercise_id": "039d",
+          "sets": 4,
+          "reps": 6,
+          "kg": 20
+        },
+        {
+          "exercise_id": "d4c4",
+          "sets": 4,
+          "reps": 3,
+          "kg": 20
         }
       ]
     }

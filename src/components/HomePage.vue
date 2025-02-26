@@ -80,26 +80,26 @@
               <tr class="row100 head">
                 <th class="column100 column1" data-column="column1">Exercício</th>
                 <th class="column100 column1" data-column="column1">Grupo muscular</th>
-                <th class="column100 column1" data-column="column1">Repetições</th>
                 <th class="column100 column1" data-column="column1">Séries</th>
+                <th class="column100 column1" data-column="column1">Repetições</th>
                 <th class="column100 column1" data-column="column1">Carga</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(exercise, index) in workout.exercises" :key="index" class="row100" style="position: relative;">
-                <router-link :to="`/exercise/${exercise.id}`" class="text-decoration-none text-white">
+                <router-link :to="`/exercise/${exercise.id}`" class="text-decoration-none text-white column100 column1">
                   <td class="column100 column1" data-column="column1">
                     {{ exercise.name }}
                   </td>
                 </router-link>
                 <td class="column100 column1" data-column="column1">
-                  {{ exercise.group }}
-                </td>
-                <td class="column100 column1" data-column="column1">
-                  {{ exercise.reps }}
+                  {{ exercise.groups.join(", ") }}
                 </td>
                 <td class="column100 column1" data-column="column1">
                   {{ exercise.sets }}
+                </td>
+                <td class="column100 column1" data-column="column1">
+                  {{ exercise.reps }}
                 </td>
                 <td class="column100 column1" data-column="column1">
                   {{ exercise.kg }}
@@ -190,7 +190,7 @@ export default {
         };
 
         await axios.patch(
-          `http://10.7.159.28:5000/workouts/${workoutId}`,
+          `http://localhost:5000/workouts/${workoutId}`,
           workoutToUpdate
         );
 
@@ -201,7 +201,7 @@ export default {
     },
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://10.7.159.28:5000/workouts");
+        const response = await axios.get("http://localhost:5000/workouts");
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -212,7 +212,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://10.7.159.28:5000/exercises/${exercise.exercise_id}`
+                  `http://localhost:5000/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
@@ -257,7 +257,7 @@ export default {
           name: this.editWorkoutName,
         };
         await axios.patch(
-          `http://10.7.159.28:5000/workouts/${workoutId}`,
+          `http://localhost:5000/workouts/${workoutId}`,
           updateWorkout
         );
         this.workouts[this.currentWorkoutIndex].name = this.editWorkoutName;
@@ -277,7 +277,6 @@ export default {
     },
     async deleteExercise(workout, exerciseId) {
       try{
-        await axios.delete(`http://10.7.159.28:5000/workouts/${workout.id}/exercises/${exerciseId}`);
 
         workout.exercises = workout.exercises.filter(exercise => exercise.id !== exerciseId)
 
@@ -320,6 +319,8 @@ export default {
     width: 200%;
   }
 }
+
+
 
 /*//////////////////////////////////////////////////////////////////
 [ TEMPLATE CSS PRONTO (tabela) ]
@@ -467,7 +468,7 @@ td {
 }
 
 .column100.column1 {
-  width: 265px;
+  width: 465px;
 }
 
 .row100.head th {

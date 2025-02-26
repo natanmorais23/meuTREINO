@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <div>
+    <div id="element-to-convert">
       <h1 class="mt-5 mb-5 text-center">Treinos da semana</h1>
 
       <div class="wrap-table100 m-auto" style="width: 90vw;">
@@ -60,11 +60,15 @@
         </div>
       </div>
     </div>
+    <div class="d-flex justify-content-center mt-5">
+        <button class="btn btn-warning" @click="exportToPDF">Salvar PDF</button>
+      </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import html2pdf from "html2pdf.js";
 
 export default {
   data() {
@@ -84,7 +88,7 @@ export default {
   methods: {
     async fetchWorkouts() {
       try {
-        const response = await axios.get("http://10.7.159.28:5000/workouts");
+        const response = await axios.get("http://localhost:5000/workouts");
 
         const workoutsData = Array.isArray(response.data)
           ? response.data
@@ -95,7 +99,7 @@ export default {
             const exercises = await Promise.all(
               workout.exercises.map(async (exercise) => {
                 const exerciseResponse = await axios.get(
-                  `http://10.7.159.28:5000/exercises/${exercise.exercise_id}`
+                  `http://localhost:5000/exercises/${exercise.exercise_id}`
                 );
                 const exerciseData = exerciseResponse.data;
 
@@ -123,11 +127,53 @@ export default {
         console.log("Erro ao puxar dados - ", error);
       }
     },
+    exportToPDF() {
+  const element = document.getElementById('element-to-convert');
+  element.classList.add('pdf-export')
+
+  const options = {
+    margin: [10, 10, 10, 10], 
+    filename: 'treinos_da_semana.pdf',
+    image: { type: 'jpeg', quality: 0.98 },  
+    html2canvas: {
+      scale: 2,  
+      logging: true, 
+    },
+    jsPDF: {
+      unit: 'mm',
+      format: 'a2',  
+      orientation: 'landscape', 
+      afterPageContent: function (data) {
+        element.classList.remove('pdf-export');
+        console.log(data)
+      }
+    },
+  };
+
+  html2pdf(element, options);
+}
+
+
   },
 };
 </script>
 
 <style scoped>
+
+.pdf-export table {
+  margin-bottom: 2%;
+  width: 25vw;
+  font-size: 0.5em;
+}
+
+.pdf-export .table100 {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
 
 @media screen and (max-width: 767px) {
   .table100{
