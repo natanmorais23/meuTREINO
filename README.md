@@ -8,9 +8,9 @@
 
 ## Treino semanal
 
-[!TreinoSemanal](./src/assets/treino_semanal.png)
+[!TreinoSemanal](src/assets/treino_semanal.png)
 
-[!Filtro](./src/assets/filtro.png)
+![Filtro](src/assets/filtro.png)
 
 ## Funcionalidades
 
